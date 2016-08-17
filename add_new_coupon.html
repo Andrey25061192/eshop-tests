@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://ec2-52-31-177-160.eu-west-1.compute.amazonaws.com/" />
+<title>add_new_coupon</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">add_new_coupon</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/open-eshop-2.0.1/oc-panel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>test_cupon_11111</td>
+	<td>coupon_name</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>(1000+Math.random()*100).toFixed(2)</td>
+	<td>discount</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.floor(10+Math.random()*90)</td>
+	<td>number</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div#accordion a[href=&quot;#collapseOne&quot;]</td>
+	<td>eShop</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div#accordion a[href=&quot;#collapseOne&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div#collapseOne a[title=&quot;Coupons&quot;]</td>
+	<td>Coupons</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div#collapseOne a[title=&quot;Coupons&quot;]@href</td>
+	<td>http://ec2-52-31-177-160.eu-west-1.compute.amazonaws.com/open-eshop-2.0.1/oc-panel/coupon</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div#collapseOne a[title=&quot;Coupons&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#content a.btn.btn-primary.pull-right</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=div#content a.btn.btn-primary.pull-right@href</td>
+	<td>http://ec2-52-31-177-160.eu-west-1.compute.amazonaws.com/open-eshop-2.0.1/oc-panel/Coupon/create</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div#content a.btn.btn-primary.pull-right</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div#content label:contains(&quot;Number of coupons&quot;)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>${coupon_name}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=discount_amount</td>
+	<td>${discount}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=valid_date</td>
+	<td>2020-06-21</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=number_coupons</td>
+	<td>${number}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.table-responsive&gt;table</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert.alert-success</td>
+	<td>× SuccessCoupon test_cupon_11111 created</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=div.table-responsive&gt;table.1.0</td>
+	<td>${coupon_name}</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=div.table-responsive&gt;table.1.2</td>
+	<td>${discount}</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=div.table-responsive&gt;table.1.3</td>
+	<td>${number}</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=div.table-responsive&gt;table.1.4</td>
+	<td>21-06-20</td>
+</tr>
+</tbody></table>
+</body>
+</html>
